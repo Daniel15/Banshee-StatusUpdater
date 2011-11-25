@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Addin 
+	id="Banshee.StatusUpdater"
+	version="0.0.1"
+	compatVersion="0.0.1"
+	copyright="Copyright © 2010 Daniel Lo Nigro. Licensed under the MIT X11 license."
+	name="Telepathy Status Updater"
+	category="Community Extensions"
+	description="Update your Telepathy (Empathy) status with the currently playing song"
+	author="Daniel Lo Nigro"
+	url="https://github.com/Daniel15/Banshee-StatusUpdater"
+	defaultEnabled="false">
+
+	<Dependencies>
+		<Addin id="Banshee.Services" version="1.0" />
+		<Addin id="Banshee.ThickClient" version="1.0" />
+	</Dependencies>
+
+	<Extension path="/Banshee/ServiceManager/Service">
+		<Service class="Banshee.StatusUpdater.StatusUpdaterService"/>
+	</Extension>
+</Addin>

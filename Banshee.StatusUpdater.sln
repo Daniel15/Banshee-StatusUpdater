@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Banshee.StatusUpdater", "Banshee.StatusUpdater\Banshee.StatusUpdater.csproj", "{83FA2BBE-D5A4-420C-B785-3325CCFA9011}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTelepathy", "NTelepathy\NTelepathy.csproj", "{720E9292-263C-449C-B4FC-C199926DBBCD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{720E9292-263C-449C-B4FC-C199926DBBCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{720E9292-263C-449C-B4FC-C199926DBBCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{720E9292-263C-449C-B4FC-C199926DBBCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{720E9292-263C-449C-B4FC-C199926DBBCD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{83FA2BBE-D5A4-420C-B785-3325CCFA9011}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{83FA2BBE-D5A4-420C-B785-3325CCFA9011}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{83FA2BBE-D5A4-420C-B785-3325CCFA9011}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{83FA2BBE-D5A4-420C-B785-3325CCFA9011}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Banshee.StatusUpdater\Banshee.StatusUpdater.csproj
+	EndGlobalSection
+EndGlobal
