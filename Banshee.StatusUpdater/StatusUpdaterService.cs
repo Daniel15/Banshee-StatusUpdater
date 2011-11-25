@@ -27,7 +27,8 @@ namespace Banshee.StatusUpdater
 			ServiceManager.PlayerEngine.ConnectEvent(OnPlayerEvent, 
 				PlayerEvent.StartOfStream |
 				PlayerEvent.EndOfStream |
-				PlayerEvent.TrackInfoUpdated);
+				PlayerEvent.TrackInfoUpdated | 
+				PlayerEvent.StateChange);
 		}
 		
 		/// <summary>
@@ -36,14 +37,57 @@ namespace Banshee.StatusUpdater
 		/// <param name='args'>Event arguments</param>
 		public void OnPlayerEvent(PlayerEventArgs args)
 		{
-			// Stopping playback
-			if (args.Event == PlayerEvent.EndOfStream)
+			// Check what type of event it was - We need to know if playback 
+			// was stopped or started.
+			switch (args.Event)
 			{
-				// Revert status back to empty string
-				_status.UpdateAllAccounts(string.Empty);
-				return;
+				case PlayerEvent.StartOfStream:	
+				case PlayerEvent.TrackInfoUpdated:
+					UpdateStatus();
+					break;
+				
+				case PlayerEvent.EndOfStream:
+					OnStop();
+					break;
+				
+				case PlayerEvent.StateChange:
+					OnPlayerStateChange((PlayerEventStateChangeArgs)args);
+					break;
 			}
-			
+		}
+		
+		/// <summary>
+		/// Called when the playback state changes
+		/// </summary>
+		/// <param name='args'>Event arguments</param>
+		private void OnPlayerStateChange(PlayerEventStateChangeArgs args)
+		{
+			switch (args.Current)
+			{
+				case PlayerState.Paused:
+					OnStop();
+					break;
+				
+				case PlayerState.Playing:
+					UpdateStatus();
+					break;
+			}
+		}
+		
+		/// <summary>
+		/// Called when the music has stopped playing.
+		/// </summary>
+		private void OnStop()
+		{
+			Console.WriteLine("Music stopped");
+			_status.UpdateAllAccounts(string.Empty);
+		}
+		
+		/// <summary>
+		/// Updates the Telepathy status.
+		/// </summary>
+		private void UpdateStatus()
+		{
 			TrackInfo track = ServiceManager.PlayerEngine.CurrentTrack;
 			string album = track.DisplayAlbumTitle;
 			
@@ -58,7 +102,7 @@ namespace Banshee.StatusUpdater
 				track.DisplayArtistName,
 				album);
 			
-			Console.WriteLine(message);
+			Console.WriteLine("Updated: {0}", message);
 			
 			_status.UpdateAllAccounts(message);
 		}
