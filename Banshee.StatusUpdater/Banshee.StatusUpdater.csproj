@@ -49,7 +49,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <ProjectReference Include="..\NTelepathy\NTelepathy.csproj">
+    <ProjectReference Include="..\NTelepathy\NTelepathy\NTelepathy.csproj">
       <Project>{720E9292-263C-449C-B4FC-C199926DBBCD}</Project>
       <Name>NTelepathy</Name>
     </ProjectReference>

@@ -12,8 +12,7 @@ namespace Banshee.StatusUpdater
 	/// currently playing song.
 	/// </summary>
 	public class StatusUpdaterService : IExtensionService
-	{
-		private Status _status = new Status();
+	{			
 		/// <summary>
 		/// Format to use for status updates for regular songs
 		/// </summary>
@@ -80,7 +79,7 @@ namespace Banshee.StatusUpdater
 		private void OnStop()
 		{
 			Console.WriteLine("Music stopped");
-			_status.UpdateAllAccounts(string.Empty);
+			UpdateStatuses(string.Empty);
 		}
 		
 		/// <summary>
@@ -103,8 +102,15 @@ namespace Banshee.StatusUpdater
 				album);
 			
 			Console.WriteLine("Updated: {0}", message);
-			
-			_status.UpdateAllAccounts(message);
+			UpdateStatuses(message);
+		}
+		
+		private void UpdateStatuses(string message)
+		{
+			foreach (Account account in Telepathy.AccountManager.ValidAccounts)
+			{
+				account.Connection.SetPresence("available", message);
+			}
 		}
 		
 		/// <summary>

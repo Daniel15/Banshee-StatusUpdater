@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Banshee.StatusUpdater", "Banshee.StatusUpdater\Banshee.StatusUpdater.csproj", "{83FA2BBE-D5A4-420C-B785-3325CCFA9011}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTelepathy", "NTelepathy\NTelepathy.csproj", "{720E9292-263C-449C-B4FC-C199926DBBCD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTelepathy", "NTelepathy\NTelepathy\NTelepathy.csproj", "{720E9292-263C-449C-B4FC-C199926DBBCD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
